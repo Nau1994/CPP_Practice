@@ -1,0 +1,7 @@
+{
+	"shell_cmd": "git commit -m \"${file_base_name}\"",
+	"shell_cmd": "git remote add origin \"git@github.com:Nau1994/CPP_Practice.git\"",
+	"shell_cmd": "git branch -M main",
+	"shell_cmd": "git push -u origin main"
+
+}

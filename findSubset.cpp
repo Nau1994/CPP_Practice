@@ -27,7 +27,7 @@ int main()
 {
     
     char input[100],output[100];
-    cin>>input;
+    cin>>input;		//input abcdef
     findSubset(input,output,0,0);
     cout<<endl;
     return 0;

@@ -64,3 +64,48 @@ cout <<']'<<endl;
     cout <<"-----------"<<endl;
     cout <<"Total no of steps : "<<noOfStepsTowerOfHanoi(n);
 }
+
+
+// input: 5
+// output:
+// A[ 5 4 3 2 1]
+// B[]
+// C[]
+// -----------
+// A[]
+// B[ 5 4 3 2 1]
+// C[]
+// -----------
+// Steps : A-->B
+// A-->C
+// B-->C
+// A-->B
+// C-->A
+// C-->B
+// A-->B
+// A-->C
+// B-->C
+// B-->A
+// C-->A
+// B-->C
+// A-->B
+// A-->C
+// B-->C
+// A-->B
+// C-->A
+// C-->B
+// A-->B
+// C-->A
+// B-->C
+// B-->A
+// C-->A
+// C-->B
+// A-->B
+// A-->C
+// B-->C
+// A-->B
+// C-->A
+// C-->B
+// A-->B
+// -----------
+// Total no of steps : 31

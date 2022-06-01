@@ -32,3 +32,25 @@ int main()
     cout<<endl;
     return 0;
 }
+
+
+// input: ABCD
+// output:
+// ABCD
+// ABC
+// ABD
+// AB
+// ACD
+// AC
+// AD
+// A
+// BCD
+// BC
+// BD
+// B
+// CD
+// C
+// D
+// NULL
+
+

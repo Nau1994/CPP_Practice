@@ -1,17 +1,9 @@
-A[ 3 2 1]
-B[]
-C[]
------------
-A[]
-B[ 3 2 1]
-C[]
------------
-Steps : A-->B
-A-->C
-B-->C
-A-->B
-C-->A
-C-->B
-A-->B
------------
-Total no of steps : 7
+abc
+ab
+ac
+a
+bc
+b
+c
+NULL
+

@@ -128,11 +128,14 @@ int main()
     int n,noSol=0;
     cin>>n;
 
-    //solveQueen(board,n,0);  to see is there any solution exist or not
+    //1. to see is there any solution exist or not
+    //solveQueen(board,n,0);  
 
-    // solveQueenAllSolution(board,n,0,&noSol);  //to see all solution using pass by reference
+    //2. to see all solution using pass by reference
+    // solveQueenAllSolution(board,n,0,&noSol);  
     // cout<<"Total no of Solution : "<<noSol;
 
+    //3. to see all solution using loacl variable
     cout<<solveQueenAllSolution2(board,n,0);
      return 0;
 }

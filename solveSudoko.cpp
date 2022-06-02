@@ -34,6 +34,44 @@ bool canPlace(int mat[][9],int x,int y,int n,int k){
 
 }
 
+int solveSudokuAllSolution(int mat[][9],int n,int i,int j){
+//base
+	if (i==n){ 
+		printMat(mat,n);
+		return 1 ;}
+
+	if (j==n){
+		i=i+1;
+		j=0;
+	}
+
+//check in mat
+	int ways=0;
+	if (mat[i][j] == 0){
+		//bruts
+		for (int k=0;k<10;k++){
+			if(canPlace(mat,i,j,n,k)){
+				mat[i][j]=k;
+				ways+=solveSudokuAllSolution(mat,n,i,j+1);
+				mat[i][j]=0;
+				
+			}
+		}
+		
+//canplace
+	}
+	else{
+		ways+=solveSudokuAllSolution(mat,n,i,j+1);
+	}
+
+	
+	return ways;
+	
+
+
+}
+
+
 bool solveSudoku(int mat[][9],int n,int i,int j){
 //base
 	if (i==n){ 
@@ -83,9 +121,15 @@ int main()
 {0,0,0,0,8,0,0,7,9}
 };
 
+//check soulution exist or not
 if(!solveSudoku(mat,n,0,0)){
     cout<<"Solution doesn't exist"<<endl;
 }
+
+
+//to see all solution
+// cout<<solveSudokuAllSolution(mat,n,0,0)<<endl;
+
 }
 
 
@@ -99,3 +143,4 @@ if(!solveSudoku(mat,n,0,0)){
 // 9 6 1 5 3 7 2 8 4 
 // 2 8 7 4 1 9 6 3 5 
 // 3 4 5 2 8 6 1 7 9
+

@@ -4,16 +4,23 @@
 // #include <string>
 
 using namespace std;
-std::vector<int> dp;
+vector<int> dp;
 
 int SUPWduties(int duties[],int i,int n){
    //base
-	if(n<=i) return 0;
+	dp[n]=0;
+	dp[n-1]=0;
+	dp[n-2]=0;
+
+	if(n-3<i) {return 0;}
+	
    if(dp[i] != -1){ return dp[i];}
    
 
    //rec
    int minimum=min(duties[i]+SUPWduties(duties,i+1,n),min(duties[i+1]+SUPWduties(duties,i+2,n),duties[i+2]+SUPWduties(duties,i+3,n)));
+  
+   
    if (dp[i]>minimum or dp[i]==-1) dp[i]=minimum;
 
    return dp[i];
@@ -70,3 +77,8 @@ int main()
 // 5
 // 2 2 3 2 2
 // output:3
+
+// input:
+// 8
+// 3 2 3 2 3 5 1 3
+// output:5

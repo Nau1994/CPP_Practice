@@ -11,7 +11,7 @@ int alphaCode(string code){
 if ((code.at(0)-'0')==0){return 0;}
     else dp[0]=1;
 
-    if(stoi(code.substr(0,2))>26){
+    if(stoi(code.substr(0,2))>26 or stoi(code.substr(0,2))<10){
     	dp[1]=1;
     }else{
     	dp[1]=2;
@@ -19,7 +19,7 @@ if ((code.at(0)-'0')==0){return 0;}
     //solve();
 
     for (int i=2;i<code.length();i++){
-    	if(stoi(code.substr(i-1,2))>26)
+    	if(stoi(code.substr(i-1,2))>26 or stoi(code.substr(i-1,2))<10)
     	{
     	dp[i]=dp[i-1];
     	}else{

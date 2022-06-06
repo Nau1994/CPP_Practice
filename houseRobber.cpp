@@ -14,9 +14,7 @@ if(n>=houseMoney.size()) return 0;
 if(dp[n]!=-1) return dp[n];
 
 int i=n;
-dp[n]=max({dp[n],houseMoney[i]+houseRobber(houseMoney,i+2),houseMoney[i]+houseRobber(houseMoney,i+3)});
-i=n+1;
-dp[n]=max({dp[n],houseMoney[i]+houseRobber(houseMoney,i+2),houseMoney[i]+houseRobber(houseMoney,i+3)});
+dp[n]=max({houseMoney[i]+houseRobber(houseMoney,i+2),houseRobber(houseMoney,i+1)});
 
 
 return dp[n];

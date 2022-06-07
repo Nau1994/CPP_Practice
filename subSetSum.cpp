@@ -76,3 +76,12 @@ int main()
     cout<<endl;
     return 0;
 }
+
+
+// input:
+// 9
+// 2 7 4 5 19
+// output:
+// 1
+// 5 4 
+// 7 2 

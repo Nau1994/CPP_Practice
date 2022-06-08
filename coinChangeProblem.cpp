@@ -169,11 +169,15 @@ int main()
 
 // with repeat:
 // input:
-// 9
+// 12
 // 2 7 4 5 19
 // output:
-// 5 4 
-// 7 2 
+// 5 5 2 
+// 5 7 
+// 4 4 4 
+// 4 4 2 2 
+// 4 2 2 2 2 
+// 2 2 2 2 2 2 
 
 // without repeat:
 // input:

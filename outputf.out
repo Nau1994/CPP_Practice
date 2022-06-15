@@ -1,17 +1,1 @@
-Suffix :Answer 13
-Suffix DP Printing
-0 0 0 0 0 
-0 8 8 8 8 
-0 8 8 12 12 
-0 8 8 12 12 
-0 8 8 13 13 
-0 8 8 13 13 
-Prefix :Answer 13
-Prefix DP Printing
-0 0 0 0 0 
-0 8 8 8 8 
-0 8 8 12 12 
-0 8 8 12 12 
-0 8 8 13 13 
-0 8 8 13 13 
-
+13

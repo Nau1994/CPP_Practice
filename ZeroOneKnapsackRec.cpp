@@ -10,9 +10,12 @@ int knapsacRec(int value[],int weight[],int s,int index){
 	//cout<<"knapsacRec";
 //base
 	if (index==-1) return 0;
+//rec
+	//exclude
 	if(value[index]>s) return knapsacRec(value,weight,s,index-1);
 
-//rec
+
+	//include
 	return(max(weight[index]+knapsacRec(value,weight,s-value[index],index-1),knapsacRec(value,weight,s,index-1)));
 
 }

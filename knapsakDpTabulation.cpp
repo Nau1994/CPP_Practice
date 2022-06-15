@@ -25,10 +25,10 @@ int main()
 
 
     //Tabulation DP
-        int dp[n+1][s+1]={0};
-    for(int i=0;i<=s;i++){
-    dp[0][i]=0;
-    }
+        int dp[n+1][s+1];
+
+        memset(dp,0,sizeof(dp));
+    
 
     //suffix subset further can be optimized to 2-DP or 1-DP
     for(int i=1;i<=n;i++){

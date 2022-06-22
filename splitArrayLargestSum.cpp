@@ -48,3 +48,22 @@ int main()
     cout<<endl;
     return 0;
 }
+
+
+// input:
+// 2
+// 7 2 5 10 8
+// output:
+// 18
+
+// input:
+// 2
+// 3 2 3 4 5
+// output:
+// 9
+
+// input:
+// 3
+// 1 4 4
+// output:
+// 4

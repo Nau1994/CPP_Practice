@@ -44,6 +44,7 @@ void digitDpFromTo(string result,int index,bool first,bool last){
 	//from
 	// int from=(index<s1.size())?(first?(s1[index]-'0'):0):0;
 	int from=first?(s1[index]-'0'):0;
+	
 
 	//rec
 	for(int i=from;i<=till;i++){

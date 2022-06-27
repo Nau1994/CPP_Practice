@@ -35,7 +35,10 @@ int main()
     
     cin>>s1>>s2;
 
-    for(int i=0;i<s2.size()-s1.size();i++){
+    int dif=s2.size()-s1.size();
+
+    //make number of digit same
+    for(int i=0;i<dif;i++){
     	s1='0'+s1;
     }
 

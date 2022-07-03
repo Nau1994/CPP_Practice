@@ -6,7 +6,7 @@
 using namespace std;
 const int N=1e5+1, M=14;
 vector<int> adjecency[N];
-int par[N][M],Q[N],h[N];
+int par[N][M],Q[N];
 
 void dfs(int current,int parent){
 
@@ -82,7 +82,7 @@ int main()
 
 	memset(par,0,sizeof(par));
 	memset(Q,0,sizeof(Q));
-	memset(h,0,sizeof(h));
+	
 
 	dfs(1,0);
 	

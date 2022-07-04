@@ -33,7 +33,7 @@ void dfs(int cur, int par) {
 			}
 
 		}
-		else if (x != par) {
+		else if (x != par && vis[x]==1) {
 			// backedge
 			low[cur] = min(low[cur], disc[x]);
 		}
@@ -43,6 +43,8 @@ void dfs(int cur, int par) {
 	if (par == 0 && child > 1) {
 		arti_points.insert(cur);
 	}
+
+	vis[cur]=2;
 
 	return;
 }
@@ -71,3 +73,32 @@ int main()
     
     return 0;
 }
+
+// input:
+// 12
+// 7 12
+// 1 2
+// 1 3
+// 2 4
+// 2 5
+// 2 6
+// 4 10
+// 5 8
+// 8 9
+// 8 11
+// 3 7
+// 7 12
+// output:
+// Articulation points: 1 2 3 4 5 7 8 
+// Bridges: 
+// 4-10
+// 2-4
+// 8-9
+// 8-11
+// 5-8
+// 2-5
+// 2-6
+// 1-2
+// 7-12
+// 3-7
+// 1-3

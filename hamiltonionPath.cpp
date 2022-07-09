@@ -5,11 +5,76 @@
 
 using namespace std;
 
-const int N=1e5;
-vector<int> adjecencyList[N];
 int nodes,edge;
-int visited[N];
+const int N=10;
+vector<int> adjecencyList[N];
 
+
+
+
+bool hamiltonionPathWithBitMaskMemoTablulation()
+{	int dp[nodes][1 << nodes];
+	memset(dp, 0, sizeof(dp));
+	for (int i = 0; i < nodes; i++) {
+		dp[i][1 << i] = 1;
+	}
+	for (int mask = 0; mask < (1 << nodes); mask++) {
+		for (int cur = 0; cur < nodes; cur++) {
+			if (dp[cur][mask]) {
+				for (auto x : adjecencyList[cur]) {
+					if (!((mask >> x) & 1)) {
+						dp[x][mask | (1 << x)] = true;
+					}
+				}
+			}
+		}
+	}
+	bool ans = 0;
+	for (int i = 0; i < nodes; i++) {
+		ans |= dp[i][(1 << nodes) - 1];
+	}
+	return ans;
+}
+
+int memo[N][1 << N];
+bool hamiltonionPathWithBitMaskMemo(int cur, int mask) {
+	if (mask == (1 << nodes) - 1) {
+		return true;
+	}
+	if (memo[cur][mask] != -1) {
+		return memo[cur][mask];
+	}
+	bool ans = false;
+	for (auto x : adjecencyList[cur]) {
+		// xth bit of mask is set or not
+		if (!((mask >> x) & 1)) {
+			ans |= hamiltonionPathWithBitMaskMemo(x, mask | (1 << x));
+		}
+	}
+	return memo[cur][mask] = ans;
+}
+
+map<pair<int, set<int>>, bool> mp;
+bool hamiltonionPathWithMemo(int cur, set<int> St) {
+	if (St.size() == nodes) {
+		return true;
+	}
+	if (mp.count({cur, St})) {
+		return mp[ {cur, St}];
+	}
+
+	bool ans = false;
+	for (auto x : adjecencyList[cur]) {
+		if (St.find(x) == St.end()) {
+			set<int> temp = St;
+			temp.insert(x);
+			ans |= hamiltonionPathWithMemo(x, temp);
+		}
+	}
+	return mp[ {cur, St}] = ans;
+}
+
+int visited[N];
 bool hamiltonionPath(int node,int nodeCount){
 	if(nodeCount==nodes){
 		//cout<<visited;
@@ -78,11 +143,36 @@ int main()
 
 	//to see ALL Hamiltonion Paths 
 
-	int noOfPath=0;
-	for(int i=0;i<nodes;i++){
-		noOfPath+=AllHamiltonionPath(i,1,to_string(i));	
-	}
-	cout<<"Total no of Path :"<<noOfPath<<endl;
+	// int noOfPath=0;
+	// for(int i=0;i<nodes;i++){
+	// 	noOfPath+=AllHamiltonionPath(i,1,to_string(i));	
+	// }
+	// cout<<"Total no of Path :"<<noOfPath<<endl;
+
+
+	// Hamiltonion Paths with recursive and memoization
+
+	// bool Path=false;
+	// for(int i=0;i<nodes;i++){
+	// 	set<int> st={};
+	// 	Path=hamiltonionPathWithMemo(i,st);	
+	// }
+	// cout<<Path;
+
+	// Hamiltonion Paths with recursive and BitMask memoization
+
+	// bool Path=false;
+	//  memset(memo, -1, sizeof(memo));
+	// for(int i=0;i<nodes;i++){
+	// 	Path=hamiltonionPathWithBitMaskMemo(i,(1<<i));	
+	// }
+	// cout<<Path;
+
+	// Hamiltonion Paths with tabulation and BitMask memoization
+
+	bool Path=false;
+	Path=hamiltonionPathWithBitMaskMemoTablulation();
+	cout<<Path;
 	return 0;
 }
 

@@ -22,7 +22,6 @@ int main()
 			cin>>price[p][d];
 		}
 	}
-    
     //base
     // dp[0][0]=0;
     for(int d=0;d<day;d++){
@@ -36,9 +35,13 @@ int main()
     for(int mask=0;mask < (1<<prod);mask++){
     	for (int d = 1; d < day; d++)
 		{
+			//exclude dth 
 			dp[mask][d]=dp[mask][d-1];
+
+			//include dth
 			for (int x = 0; x < prod; x++)
-			{
+			{	
+				//checking xth bit is set
 				if((mask>>x)&1){
 					dp[mask][d]=min(dp[mask][d],(dp[mask^(1<<x)][d-1]+price[x][d]));
 				}

@@ -7,6 +7,31 @@ using namespace std;
 int x,n;
 vector<int> weight;
 
+int elevatorProbBitMak(pair<int,int> dp[]){
+	dp[0]={1,0}; //first=ride,second=weight
+	for(int mask=1;mask<(1<<n);mask++){
+		dp[mask]={n,0};
+		for(int y=0;y<n;y++){
+			if((mask>>y)&1){
+				int new_mask=mask^(1<<y);
+				pair<int,int> temp;
+				if(dp[new_mask].second+weight[y]<=x){
+					temp.first=dp[new_mask].first;
+					temp.second=dp[new_mask].second+weight[y];
+				}
+				else{
+					temp.first=dp[new_mask].first+1;
+					temp.second=weight[y];
+				}
+				dp[mask]=min(dp[mask],temp);
+				//min will compare first then second
+			}
+			
+		}
+	}
+	return dp[(1<<n)-1].first;
+}
+
 int givePartition(vector<int> st)
 {
 	int sum=0,ride=1;
@@ -50,18 +75,13 @@ int main()
     	weight.push_back(x);
     }
 
- //    vector<vector<int>> dp2(n + 1, vector<int>(p + 1, 0));
- //    // dp2.resize(n+1,vector<int>(p+1,-1));
 
- //    int dp3[n][p];
-	// memset(dp3,0,sizeof(dp3));
-
-	// map<int,map<int,vector<vector<int>>>> dp4;
-	// //empty vector<vector<int>>()
-	// // if(dp4.count(index) and dp4[index].count(sum)){} 
+     // cout<<"Minimum Ride: "<<elevatorProbBrutforce(0,{});
 
 
-     cout<<"Minimum Ride: "<<elevatorProbBrutforce(0,{});
+    pair<int,int> dp[1<<n];
+    cout<<"Minimum Ride: "<<elevatorProbBitMak(dp);
+
 
     //dp printing
     // for(auto i: weight){

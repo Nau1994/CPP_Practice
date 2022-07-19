@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 // function to print the sum over subsets value
 // O(N*2^N)
 void SumOverSubsetsOptimal2(int a[], int n) {
@@ -23,12 +24,14 @@ void SumOverSubsetsOptimal2(int a[], int n) {
     cout << sos[i] << " ";
 }
 
+
+
 // function to print the sum over subsets value
 // O(N*2^N)
 void SumOverSubsetsOptimal(int a[], int n) {
   // array to store the SumOverSubsets
   int sos[1 << n] = {0};
-  
+
   // iterate for all possible x
   for (int x = 0; x < (1 << n); x++) {
     sos[x] = a[0];

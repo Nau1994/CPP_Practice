@@ -4,9 +4,23 @@
 // #include <string>
 
 using namespace std;
-//vector<int> dp;
+const int N=1e5;
+int value[N],weight[N];
 
-int knapsacRec(int value[],int weight[],int s,int index){
+int knapsacRecOptimized(int i,int s){ 
+    if (i<0) return 0;
+    
+    int ans=0;
+    //rec
+    if (value[i]<=s){
+        ans=max(ans,knapsacRecOptimized( i-1, s-value[i])+weight[i]);
+    }
+
+    ans=max(ans,knapsacRecOptimized( i-1, s));
+    return ans;
+}
+
+int knapsacRec(int value[],int weight[],int s,int index){ 
 	//cout<<"knapsacRec";
 //base
 	if (index==-1) return 0;
@@ -23,19 +37,21 @@ int knapsacRec(int value[],int weight[],int s,int index){
 int main()
 {
     
-    int s;
+    int s,n;
     cin>>s;
-    int n;
+    
     cin>> n;
-    int value[n],weight[n];
+    
     for (int i=0;i<n;i++){
     	cin>>value[i];
     	cin>>weight[i];
     }
 
 //recursive
-     cout<<knapsacRec(value,weight,s,n-1)<<endl;
-    
+      cout<<knapsacRec(value,weight,s,n-1)<<endl;
+      
+      cout<<knapsacRecOptimized(n-1,s)<<endl;
+      
 
     cout<<endl;
     return 0;

@@ -57,6 +57,19 @@ int main()
     return 0;
 }
 
+// constraint
+// 1≤N.≤100
+// 1≤W.≤10^5
+// 1≤w(i)≤W.
+// 1≤v(i)≤10^9
+
+// Input: 
+// V. N.
+// v1 w1 
+// v2 w2 
+// .  .  
+// .  .  
+// vN wN 
 
 // input:
 // 4 5

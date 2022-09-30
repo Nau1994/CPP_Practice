@@ -1,16 +1,1 @@
-Recursive solution->>8
-Tabular solution->>1 0 0 0 0 
-1 1 0 0 0 
-1 2 2 2 2 
-1 3 5 7 8 
-8
-Tabular+PrefixSum solution->>1 0 0 0 0 
-1 1 0 0 0 
-1 2 2 2 2 
-1 3 5 7 8 
-8
-Tabular+PrefixSum solution->>1 1 1 1 1 
-1 2 2 2 2 
-1 3 5 7 9 
-1 3 5 7 8 
-8
+190

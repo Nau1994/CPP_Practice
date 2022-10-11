@@ -62,3 +62,18 @@ int32_t main()
 //pick one from array --O(N)
 //perfor two pointer pairSum for finding rest two element --N(O)
 //O(Nlog(N))+O(N*N) => O(N*N)
+
+
+// input:
+// 10 12
+// 15 3 2 4 5 6 7 8 9 1
+// output:
+// 1 2 9 
+// 1 3 8 
+// 1 4 7 
+// 1 5 6 
+// 2 3 7 
+// 2 4 6 
+// 3 4 5 
+
+

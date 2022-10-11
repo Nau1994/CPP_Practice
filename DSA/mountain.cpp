@@ -16,12 +16,12 @@ int mountainPeak(int *a,int n){
             int cnt=1;
             int j=i;
             //backword
-            while(j>=0 and a[j]>a[j-1]){
+            while(j>=1 and a[j]>a[j-1]){
                 j--;
                 cnt++;
             }
             //forword
-            while(i<=n-1 and a[i]>a[i+1]){
+            while(i<=n-2 and a[i]>a[i+1]){
                 i++;
                 cnt++;
             }

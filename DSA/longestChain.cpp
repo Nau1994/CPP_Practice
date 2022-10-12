@@ -6,33 +6,6 @@
 using namespace std;
 #define int long long int
 
-int mountainPeak(int *a,int n){
-	int largest=0;
-    for (int i = 1; i <= n-2;)
-    {
-        
-        //check peak
-        if(a[i]>a[i-1] and a[i]>a[i+1]){
-            int cnt=1;
-            int j=i;
-            //backword
-            while(j>=1 and a[j]>a[j-1]){
-                j--;
-                cnt++;
-            }
-            //forword
-            while(i<=n-2 and a[i]>a[i+1]){
-                i++;
-                cnt++;
-            }
-            largest=max(largest,cnt);
-        }
-        else{
-            i++;
-        }
-    }
-	return largest;
-}
 
 int longestChain(int *a,int n){
     unordered_set<int> st;

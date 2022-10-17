@@ -36,3 +36,12 @@ int32_t main()
  
     return 0;
 }
+
+
+//input:
+// this&%is&%me
+// &%
+// output:
+// this
+// is
+// me

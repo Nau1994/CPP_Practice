@@ -6,7 +6,8 @@
 using namespace std;
 // #define int long long int
 void decToBin(int x){
-	int i=8;
+	int i=16;
+
 	while(i>=0){
 		int mask=(1<<i);
 		// cout<<mask<<"mask"<<endl;

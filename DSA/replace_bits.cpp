@@ -6,7 +6,11 @@
 using namespace std;
 // #define int long long int
 void decToBin(int x){
-	int i=16;
+	int i=0,y=x>0?x:INT_MAX;
+	while(y>0){
+		i++;
+		y=y>>1;
+	}
 
 	while(i>=0){
 		int mask=(1<<i);
